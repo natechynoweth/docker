@@ -24,8 +24,9 @@ RUN apt-get install -y curl grep sed dpkg && \
     apt-get clean
 
 
-RUN exec bash
+
 RUN conda install python=3 tornado=6.1
+RUN exec bash
 COPY tornado.py /app/
 
 ENTRYPOINT ["conda", "run", "--no-capture-output", "python3", "/app/tornado.py"]
